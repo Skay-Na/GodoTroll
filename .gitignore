@@ -1,6 +1,7 @@
 # Godot 4+ 忽略文件
 .godot/
 .sync/
+.vscode/
 *.translation
 
 # 系统与缓存
