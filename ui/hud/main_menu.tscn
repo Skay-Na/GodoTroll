@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://cw780bx4e52eh"]
+
+[ext_resource type="Script" uid="uid://c0j56gm7lpdu6" path="res://ui/hud/main_menu.gd" id="1_vhmhu"]
+[ext_resource type="Texture2D" uid="uid://bahsyfl4gk8rc" path="res://assets/sprites/ui/封面.jpg" id="3_fkojh"]
+
+[sub_resource type="FontVariation" id="FontVariation_wprdj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wprdj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkojh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_61qlu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_840rd"]
+
+[node name="MainMenu" type="Control" unique_id=332037790]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_vhmhu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=570608827]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=675653401]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = 346.0
+offset_top = 406.0
+offset_right = 654.0
+offset_bottom = 629.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=97699070]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9, 0.777, 0.162, 0.94509804)
+theme_override_fonts/font = SubResource("FontVariation_wprdj")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wprdj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkojh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_61qlu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_840rd")
+text = "开始游戏"
+
+[node name="LevelSelectButton" type="Button" parent="VBoxContainer" unique_id=931018396]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9, 0.777, 0.162, 0.94509804)
+theme_override_fonts/font = SubResource("FontVariation_wprdj")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wprdj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkojh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_61qlu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_840rd")
+text = "选择关卡"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=232094284]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9, 0.777, 0.162, 0.94509804)
+theme_override_fonts/font = SubResource("FontVariation_wprdj")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wprdj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkojh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_61qlu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_840rd")
+text = "设置"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=674814258]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9, 0.777, 0.162, 0.94509804)
+theme_override_fonts/font = SubResource("FontVariation_wprdj")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wprdj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkojh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_61qlu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_840rd")
+text = "退出游戏"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=430697415]
+position = Vector2(503, 247)
+scale = Vector2(0.07427499, 0.07427499)
+texture = ExtResource("3_fkojh")
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

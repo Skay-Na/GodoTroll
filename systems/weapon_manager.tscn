@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bj8kf7o2efqqc"]
+
+[ext_resource type="Script" uid="uid://c0bjovgy24ygl" path="res://systems/weapon_manager.gd" id="1_6sjh8"]
+[ext_resource type="PackedScene" uid="uid://dg8t8m645joro" path="res://entities/player/fireball.tscn" id="2_qn2uw"]
+
+[node name="WeaponManager" type="Node2D" unique_id=497866667]
+script = ExtResource("1_6sjh8")
+fireball_scene = ExtResource("2_qn2uw")
+
+[node name="Pistol" type="Node2D" parent="." unique_id=1766192709]
+
+[node name="FireRateTimer" type="Timer" parent="Pistol" unique_id=249922712]
+
+[node name="MachineGun" type="Node2D" parent="." unique_id=499085006]
+
+[node name="FireRateTimer" type="Timer" parent="MachineGun" unique_id=1731848224]
+
+[node name="Fireball" type="Node2D" parent="." unique_id=1083583718]
+
+[node name="FireRateTimer" type="Timer" parent="Fireball" unique_id=1873178951]
+wait_time = 0.165
+one_shot = true

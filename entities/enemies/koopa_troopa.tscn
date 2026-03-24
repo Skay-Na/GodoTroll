@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://ctxovuootqoff"]
+
+[ext_resource type="Script" uid="uid://bhoup0difypg6" path="res://entities/enemies/koopa_troopa.gd" id="1_k01d8"]
+[ext_resource type="Texture2D" uid="uid://d0y18j7drc7m" path="res://assets/sprites/characters/怪物形态.png" id="2_h752x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23t6q"]
+atlas = ExtResource("2_h752x")
+region = Rect2(80, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_305el"]
+atlas = ExtResource("2_h752x")
+region = Rect2(96, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k01d8"]
+atlas = ExtResource("2_h752x")
+region = Rect2(16, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h752x"]
+atlas = ExtResource("2_h752x")
+region = Rect2(32, 72, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2qtu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23t6q")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_305el")
+}],
+"loop": true,
+"name": &"shell",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k01d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h752x")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21hcc"]
+size = Vector2(13.750004, 19.906252)
+
+[node name="Koopa Troopa" type="CharacterBody2D" unique_id=124508995]
+position = Vector2(0, -9.695)
+scale = Vector2(0.8, 0.8)
+collision_layer = 25
+collision_mask = 27
+script = ExtResource("1_k01d8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2078397192]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_y2qtu")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=721647406]
+position = Vector2(-0.62499946, 2.0718746)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_21hcc")

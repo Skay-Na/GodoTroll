@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dl1j3swiuy0c2"]
+
+[ext_resource type="Script" uid="uid://c1xbbe6sq3b3f" path="res://systems/sound_manager.gd" id="1_ygxkf"]
+[ext_resource type="AudioStream" uid="uid://etdd524u3gx5" path="res://assets/audio/jump_small.wav" id="2_bwlvw"]
+[ext_resource type="AudioStream" uid="uid://dwv00nslrv6ih" path="res://assets/audio/获得强化道具音效.wav" id="3_l4m53"]
+[ext_resource type="AudioStream" uid="uid://clqg8b0ejas62" path="res://assets/audio/jump_big.wav" id="3_wwv6j"]
+[ext_resource type="AudioStream" uid="uid://3dd5vuca7102" path="res://assets/audio/player_die.wav" id="4_lrvsg"]
+[ext_resource type="AudioStream" uid="uid://4c0w10vhfp2i" path="res://assets/audio/碰撞音效（撞砖块、撞敌人等碰撞动作）.wav" id="5_d5kqp"]
+[ext_resource type="AudioStream" uid="uid://bp4lqrufq6whr" path="res://assets/audio/level_clear.wav" id="5_gb18h"]
+[ext_resource type="AudioStream" uid="uid://cnfrmqh0m1t6c" path="res://assets/audio/coin_collect.wav" id="6_mhvbd"]
+[ext_resource type="AudioStream" uid="uid://kvu23ijhobis" path="res://assets/audio/one_up.wav" id="7_55or6"]
+[ext_resource type="AudioStream" uid="uid://b3t7m877oq6ti" path="res://assets/audio/death/你个狗.wav" id="7_a1pgl"]
+[ext_resource type="AudioStream" uid="uid://cg25rg1kdfwa3" path="res://assets/audio/旗杆音效（爬到旗杆顶端时的音乐）.wav" id="7_pq0d8"]
+[ext_resource type="AudioStream" uid="uid://bkpxgnjvo3fix" path="res://assets/audio/death/你怎么这么自私.wav" id="8_847ce"]
+[ext_resource type="AudioStream" uid="uid://ddvryvuw560te" path="res://assets/audio/踩扁敌人音效（最经典的 “踩蘑菇” 声.wav" id="8_yb8uk"]
+[ext_resource type="AudioStream" uid="uid://c8qaovxfbcas4" path="res://assets/audio/death/再见了妈妈今晚我就要远航.wav" id="9_4llxw"]
+[ext_resource type="AudioStream" uid="uid://bf11opwxygsx1" path="res://assets/audio/kick.wav" id="9_y8fms"]
+[ext_resource type="AudioStream" uid="uid://hruxcoxlnho1" path="res://assets/audio/death/年轻人不讲武德.wav" id="10_fq4ma"]
+[ext_resource type="AudioStream" uid="uid://bbb36o2m6wcc" path="res://assets/audio/death/我一定会回来的.wav" id="11_byp07"]
+[ext_resource type="AudioStream" uid="uid://13vj4ytqupvb" path="res://assets/audio/block_break.mp3" id="11_nhsfq"]
+[ext_resource type="AudioStream" uid="uid://c1anooyadf73i" path="res://assets/audio/death/我大意了没有闪.wav" id="12_jvkqa"]
+[ext_resource type="AudioStream" uid="uid://bexkw21ie23nt" path="res://assets/audio/death/行不行啊洗狗.mp3" id="13_ihbt1"]
+[ext_resource type="AudioStream" uid="uid://cmq2axri5s2my" path="res://assets/audio/death/装呗我让你飞起来（盲盒）.mp3" id="14_cnngp"]
+[ext_resource type="AudioStream" uid="uid://cv4fqmso8wbcf" path="res://assets/audio/death/马里奥骂人.mp3" id="15_1dd33"]
+
+[node name="SoundManager" type="Node" unique_id=545825092]
+script = ExtResource("1_ygxkf")
+small_jump_sfx = ExtResource("2_bwlvw")
+big_jump_sfx = ExtResource("3_wwv6j")
+powerup_sfx = ExtResource("3_l4m53")
+damage_sfx = ExtResource("5_d5kqp")
+death_sfx = ExtResource("4_lrvsg")
+death_sounds = Array[AudioStream]([ExtResource("7_a1pgl"), ExtResource("8_847ce"), ExtResource("9_4llxw"), ExtResource("10_fq4ma"), ExtResource("11_byp07"), ExtResource("12_jvkqa"), ExtResource("13_ihbt1"), ExtResource("14_cnngp"), ExtResource("15_1dd33")])
+pipe_sfx = ExtResource("5_gb18h")
+one_up_sfx = ExtResource("7_55or6")
+bump_sfx = ExtResource("5_d5kqp")
+break_sfx = ExtResource("11_nhsfq")
+coin_sfx = ExtResource("6_mhvbd")
+flagpole_sfx = ExtResource("7_pq0d8")
+stomp_sfx = ExtResource("8_yb8uk")
+kick_sfx = ExtResource("9_y8fms")

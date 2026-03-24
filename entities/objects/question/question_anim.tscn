@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://di6bxvq1b3reh"]
+
+[ext_resource type="Texture2D" uid="uid://dgeif1ml0k3o7" path="res://assets/sprites/environment/砖块.png" id="1_102gm"]
+[ext_resource type="Script" uid="uid://crjav5tqynp8j" path="res://entities/objects/question/question_anim.gd" id="2_kdxt0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pugi3"]
+atlas = ExtResource("1_102gm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0vnv"]
+atlas = ExtResource("1_102gm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35ktu"]
+atlas = ExtResource("1_102gm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3piio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pugi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0vnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35ktu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="QuestionAnim" type="AnimatedSprite2D" unique_id=1095326072]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3piio")
+autoplay = "default"
+frame_progress = 0.88610554
+script = ExtResource("2_kdxt0")

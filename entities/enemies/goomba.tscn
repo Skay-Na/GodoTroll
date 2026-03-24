@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://v7xfe8eyiahs"]
+
+[ext_resource type="Texture2D" uid="uid://d0y18j7drc7m" path="res://assets/sprites/characters/怪物形态.png" id="1_21hcc"]
+[ext_resource type="Script" uid="uid://cos4ktnu71y0b" path="res://entities/enemies/goomba.gd" id="1_s1jgw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1jgw"]
+atlas = ExtResource("1_21hcc")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgpj4"]
+atlas = ExtResource("1_21hcc")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0j8n"]
+atlas = ExtResource("1_21hcc")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2qtu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1jgw")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgpj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0j8n")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21hcc"]
+size = Vector2(10, 13.05)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2qtu"]
+size = Vector2(16, 10.049999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1jgw"]
+size = Vector2(18, 3)
+
+[node name="Goomba" type="CharacterBody2D" unique_id=124508995]
+position = Vector2(0, -7.975)
+collision_layer = 8
+collision_mask = 25
+script = ExtResource("1_s1jgw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2078397192]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_y2qtu")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=721647406]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_21hcc")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1522899681]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1044529309]
+position = Vector2(0, 1.9999995)
+shape = SubResource("RectangleShape2D_y2qtu")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=424758786]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1204831122]
+position = Vector2(0, -7.525)
+shape = SubResource("RectangleShape2D_s1jgw")

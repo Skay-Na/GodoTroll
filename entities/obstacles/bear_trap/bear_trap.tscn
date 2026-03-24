@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dpf38l8v37bk4"]
+
+[ext_resource type="Script" uid="uid://0ql4yrm8abyf" path="res://entities/obstacles/bear_trap/bear_trap.gd" id="1_uktm5"]
+[ext_resource type="AudioStream" uid="uid://be742kb2uq632" path="res://assets/audio/blocks/捕兽夹音效.mp3" id="2_58613"]
+[ext_resource type="Texture2D" uid="uid://bqq8r82obvbct" path="res://assets/sprites/props/捕兽夹.png" id="3_t8vam"]
+[ext_resource type="Texture2D" uid="uid://o5e6emf0jngt" path="res://assets/sprites/props/空格键盘显示2.png" id="4_t8vam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vam"]
+size = Vector2(46.428574, 28.57143)
+
+[sub_resource type="Animation" id="Animation_58613"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_t8vam"]
+resource_name = "default"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.063648984),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g2gwp"]
+_data = {
+&"RESET": SubResource("Animation_58613"),
+&"default": SubResource("Animation_t8vam")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2gwp"]
+atlas = ExtResource("4_t8vam")
+region = Rect2(0, 0, 762, 345)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thbfe"]
+atlas = ExtResource("4_t8vam")
+region = Rect2(762, 0, 762, 345)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60lk6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2gwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thbfe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="BearTrap" type="Area2D" unique_id=1570986152]
+z_index = 60
+position = Vector2(1, 0)
+scale = Vector2(1.456, 1.456)
+collision_layer = 17
+collision_mask = 2
+script = ExtResource("1_uktm5")
+trigger_sound = ExtResource("2_58613")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1439993355]
+position = Vector2(1.7857156, -12.5)
+scale = Vector2(0.06566004, 0.06566003)
+texture = ExtResource("3_t8vam")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(179, 581, 2469, 530)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1050236754]
+position = Vector2(-1.0728836e-06, -7.142857)
+shape = SubResource("RectangleShape2D_t8vam")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=452912107]
+libraries/ = SubResource("AnimationLibrary_g2gwp")
+autoplay = &"RESET"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1303083893]
+position = Vector2(-2.7472532, -55.631878)
+scale = Vector2(0.096, 0.096)
+sprite_frames = SubResource("SpriteFrames_60lk6")
+autoplay = "default"

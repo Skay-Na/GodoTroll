@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cbfybthlggjnc"]
+
+[ext_resource type="Script" uid="uid://bvsd4ngti060f" path="res://entities/obstacles/truck_rush/truck.gd" id="1_hrdjj"]
+[ext_resource type="Texture2D" uid="uid://bouq4cfwybf7c" path="res://assets/sprites/props/撞大运卡车.png" id="2_5kkde"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drltr"]
+size = Vector2(198, 65)
+
+[node name="Truck" type="CharacterBody2D" unique_id=733702131]
+collision_layer = 512
+collision_mask = 2
+script = ExtResource("1_hrdjj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1388489174]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_5kkde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=32187661]
+position = Vector2(2, -0.5)
+shape = SubResource("RectangleShape2D_drltr")

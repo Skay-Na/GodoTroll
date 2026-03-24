@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://uxyjx370oy23"]
+
+[ext_resource type="Texture2D" uid="uid://cgjxxri1ghgjt" path="res://assets/sprites/props/骑大马.png" id="1_0hhcs"]
+[ext_resource type="Script" uid="uid://dleq3fyjqofj1" path="res://entities/obstacles/rocking_hours/rocking_horse.gd" id="1_1u3xf"]
+[ext_resource type="Texture2D" uid="uid://m6cmdxowamoh" path="res://assets/sprites/characters/人物形态25-25.png" id="2_1u3xf"]
+[ext_resource type="AudioStream" uid="uid://bo5dx0uiaxxjn" path="res://assets/audio/blocks/骑大马音频.mp3" id="2_mmatc"]
+[ext_resource type="Texture2D" uid="uid://5fuxgxk84py1" path="res://assets/sprites/props/左右键盘显示2.png" id="5_4f0dm"]
+
+[sub_resource type="Animation" id="Animation_mmatc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.2617994]
+}
+
+[sub_resource type="Animation" id="Animation_4f0dm"]
+resource_name = "rock"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.2617994, 0.2617994]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q7qu0"]
+_data = {
+&"RESET": SubResource("Animation_mmatc"),
+&"rock": SubResource("Animation_4f0dm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1u3xf"]
+size = Vector2(71.28062, 52.16731)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7qu0"]
+atlas = ExtResource("5_4f0dm")
+region = Rect2(0, 0, 1571, 889)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypnla"]
+atlas = ExtResource("5_4f0dm")
+region = Rect2(1574, 0, 1571, 889)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yfu1h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7qu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypnla")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="RidsBigHours" type="Node2D" unique_id=495970175]
+z_index = 5
+rotation = -0.2617994
+script = ExtResource("1_1u3xf")
+custom_position_offset = Vector2(0, 66.785)
+bgm_stream = ExtResource("2_mmatc")
+anim_max_speed = 8.23
+audio_min_pitch = 0.33
+audio_max_pitch = 1.82
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2139968004]
+position = Vector2(0, -25.76)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_0hhcs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1831159149]
+libraries/ = SubResource("AnimationLibrary_q7qu0")
+autoplay = &"rock"
+
+[node name="playerSprite" type="Sprite2D" parent="." unique_id=1638110376]
+texture_filter = 1
+position = Vector2(-0.565, -39.849)
+scale = Vector2(-0.784, 0.784)
+texture = ExtResource("2_1u3xf")
+region_enabled = true
+region_rect = Rect2(187, 214, 28, 45)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1126236192]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1906721395]
+position = Vector2(-0.37, -26.101)
+scale = Vector2(1.0000006, 1.0000006)
+shape = SubResource("RectangleShape2D_1u3xf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1239270797]
+texture_filter = 1
+position = Vector2(35.915123, -29.717072)
+rotation = -0.0017453292
+scale = Vector2(0.019907352, 0.019907357)
+sprite_frames = SubResource("SpriteFrames_yfu1h")
+autoplay = "default"
+frame_progress = 0.14233705

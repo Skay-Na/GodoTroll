@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ddsik0mfe4o7k"]
+
+[ext_resource type="Texture2D" uid="uid://crvk0sdgn7k70" path="res://assets/sprites/environment/建筑大全.png" id="1_2bxti"]
+[ext_resource type="Script" uid="uid://wlm67naqrc1v" path="res://entities/objects/platforms/moving_platform_1.gd" id="1_hsxf1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bxti"]
+size = Vector2(48, 8)
+
+[node name="MovingPlatform-1" type="AnimatableBody2D" unique_id=1021139430]
+collision_mask = 10
+script = ExtResource("1_hsxf1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=376444769]
+texture_filter = 1
+texture = ExtResource("1_2bxti")
+region_enabled = true
+region_rect = Rect2(400, 16, 48, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1481359647]
+shape = SubResource("RectangleShape2D_2bxti")

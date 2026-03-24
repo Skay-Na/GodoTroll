@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://didlnrjibxyi8"]
+
+[ext_resource type="Script" uid="uid://do6pryv1jr58u" path="res://ui/hud/hud.gd" id="1_4u803"]
+[ext_resource type="FontFile" uid="uid://xm5fxcqvha4m" path="res://assets/fonts/DominoBrick-aYy39.ttf" id="2_cgeww"]
+
+[node name="HUD" type="CanvasLayer" unique_id=368288586]
+layer = 100
+script = ExtResource("1_4u803")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1534969219]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=776208660]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="CoinsLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1156786314]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.93, 0.558, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("2_cgeww")
+theme_override_font_sizes/font_size = 40
+text = "COIN 00"
+
+[node name="WorldLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=2038421180]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.93, 0.558, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("2_cgeww")
+theme_override_font_sizes/font_size = 40
+text = "World 0-0"
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1226298827]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.558, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("2_cgeww")
+theme_override_font_sizes/font_size = 40
+text = "TIMER 300"
+
+[node name="LivesLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=265617889]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.93, 0.558, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("2_cgeww")
+theme_override_font_sizes/font_size = 40
+text = "LIVES 3"
+horizontal_alignment = 2

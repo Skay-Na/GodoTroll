@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://nxh4u48eahux"]
+
+[ext_resource type="Script" uid="uid://gns8qmnhqriq" path="res://entities/items/coin/coin.gd" id="1_dy1n6"]
+[ext_resource type="Texture2D" uid="uid://dedsl1j2a1a5c" path="res://assets/sprites/environment/闪动素材.png" id="1_xw3ry"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy1n6"]
+atlas = ExtResource("1_xw3ry")
+region = Rect2(16, 97, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je6nt"]
+atlas = ExtResource("1_xw3ry")
+region = Rect2(32, 97, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6x61"]
+atlas = ExtResource("1_xw3ry")
+region = Rect2(48, 97, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t72in"]
+atlas = ExtResource("1_xw3ry")
+region = Rect2(64, 97, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_33d0j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy1n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je6nt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6x61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t72in")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dy1n6"]
+radius = 4.0
+
+[node name="Coin" type="Area2D" unique_id=168046188]
+z_index = 20
+texture_filter = 1
+scale = Vector2(0.9, 0.9)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_dy1n6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=934786270]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_33d0j")
+animation = &"spin"
+autoplay = "spin"
+frame_progress = 0.37044078
+
+[node name="Area2D" type="Area2D" parent="." unique_id=543931343]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=702095020]
+shape = SubResource("CircleShape2D_dy1n6")

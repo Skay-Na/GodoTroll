@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://1c2vula080dy"]
+
+[ext_resource type="Texture2D" uid="uid://bd2fkrgr51gep" path="res://assets/sprites/props/定身符.png" id="1_3fyqx"]
+[ext_resource type="Script" uid="uid://cl4blpkqs6mx8" path="res://entities/obstacles/talisman/binding_talisman.gd" id="1_itpqd"]
+[ext_resource type="VideoStream" uid="uid://bhrc8fyh3nkn1" path="res://assets/video/定身符.mp4" id="2_kewea"]
+[ext_resource type="Texture2D" uid="uid://d0sjid4kmqton" path="res://assets/sprites/props/喊破字解除.png" id="3_tf35t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itpqd"]
+size = Vector2(37, 110)
+
+[node name="BindingTalisman" type="Area2D" unique_id=1206602372]
+script = ExtResource("1_itpqd")
+energy_multiplier = 124.895
+noise_floor_db = -20.22
+energy_decay_rate = 92.99
+activation_video = ExtResource("2_kewea")
+pickup_range = 0.5
+spill_suppression = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=887124004]
+scale = Vector2(0.051, 0.051)
+texture = ExtResource("1_3fyqx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=128944537]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_itpqd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=410513944]
+position = Vector2(-30, 0)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("3_tf35t")

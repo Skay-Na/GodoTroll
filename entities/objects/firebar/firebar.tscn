@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://dw7urmu8rv1fp"]
+
+[ext_resource type="Script" uid="uid://vbjdkbsvtas0" path="res://entities/objects/firebar/firebar.gd" id="1_iccu2"]
+[ext_resource type="Texture2D" uid="uid://dnj7fq807ylr7" path="res://assets/sprites/environment/旋转火把.png" id="2_7p4d7"]
+[ext_resource type="Texture2D" uid="uid://crvk0sdgn7k70" path="res://assets/sprites/environment/建筑大全.png" id="2_pn6aq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_626uc"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn6aq"]
+atlas = ExtResource("2_7p4d7")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_626uc"]
+atlas = ExtResource("2_7p4d7")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep78i"]
+atlas = ExtResource("2_7p4d7")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li504"]
+atlas = ExtResource("2_7p4d7")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kh0vt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn6aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_626uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ep78i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li504")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p4d7"]
+size = Vector2(45.35534, 5.656857)
+
+[node name="Firebar" type="Node2D" unique_id=2116714481]
+script = ExtResource("1_iccu2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=311850530]
+texture_filter = 1
+texture = ExtResource("2_pn6aq")
+region_enabled = true
+region_rect = Rect2(944, 16, 16, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1000159073]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=246937286]
+shape = SubResource("RectangleShape2D_626uc")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1560627476]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=1338478977]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_kh0vt")
+autoplay = "default"
+frame_progress = 0.064677216
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Pivot" unique_id=997253154]
+texture_filter = 1
+position = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_kh0vt")
+autoplay = "default"
+frame_progress = 0.8175913
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Pivot" unique_id=1760345365]
+texture_filter = 1
+position = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_kh0vt")
+autoplay = "default"
+frame_progress = 0.6635555
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Pivot" unique_id=292997030]
+texture_filter = 1
+position = Vector2(18, 18)
+sprite_frames = SubResource("SpriteFrames_kh0vt")
+autoplay = "default"
+frame_progress = 0.053256612
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Pivot" unique_id=98231001]
+texture_filter = 1
+position = Vector2(24, 24)
+sprite_frames = SubResource("SpriteFrames_kh0vt")
+autoplay = "default"
+frame_progress = 0.4743062
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Pivot" unique_id=808108922]
+texture_filter = 1
+position = Vector2(30, 30)
+sprite_frames = SubResource("SpriteFrames_kh0vt")
+autoplay = "default"
+frame_progress = 0.41162884
+
+[node name="Area2D" type="Area2D" parent="Pivot" unique_id=1760241572]
+position = Vector2(-9.536743e-07, -9.536743e-07)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Hitbox" type="CollisionShape2D" parent="Pivot/Area2D" unique_id=1926182015]
+position = Vector2(15.964469, 15.964469)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_7p4d7")

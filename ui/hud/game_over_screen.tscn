@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://pnglg6pk1sif"]
+
+[ext_resource type="Script" uid="uid://tpv81xj4c4g6" path="res://ui/hud/game_over_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://m6cmdxowamoh" path="res://assets/sprites/characters/人物形态25-25.png" id="2_3r13c"]
+[ext_resource type="FontFile" uid="uid://xm5fxcqvha4m" path="res://assets/fonts/DominoBrick-aYy39.ttf" id="2_3tpv3"]
+[ext_resource type="PackedScene" uid="uid://didlnrjibxyi8" path="res://ui/hud/hud.tscn" id="2_4r2m5"]
+
+[sub_resource type="Animation" id="Animation_4vnjk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iwahs"]
+resource_name = "fade_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_61w2s"]
+_data = {
+&"RESET": SubResource("Animation_4vnjk"),
+&"fade_in": SubResource("Animation_iwahs")
+}
+
+[node name="GameOverScreen" type="CanvasLayer" unique_id=1005154291]
+process_mode = 3
+layer = 50
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=998255213]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=804912821]
+process_mode = 3
+libraries/ = SubResource("AnimationLibrary_61w2s")
+autoplay = &"fade_in"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1641059397]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -38.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 31
+alignment = 1
+
+[node name="World" type="Label" parent="VBoxContainer2" unique_id=235849234]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_3tpv3")
+theme_override_font_sizes/font_size = 50
+text = "World 0-0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer2" unique_id=467588086]
+custom_minimum_size = Vector2(0, 27.81)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2" unique_id=1696338024]
+z_index = 20
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer2/HBoxContainer" unique_id=1708169297]
+texture_filter = 1
+position = Vector2(-32, 15)
+scale = Vector2(-3, 3)
+texture = ExtResource("2_3r13c")
+region_enabled = true
+region_rect = Rect2(30, 32, 21, 21)
+
+[node name="X" type="Label" parent="VBoxContainer2/HBoxContainer" unique_id=658811076]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_3tpv3")
+theme_override_font_sizes/font_size = 40
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lives" type="Label" parent="VBoxContainer2/HBoxContainer" unique_id=413390976]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_3tpv3")
+theme_override_font_sizes/font_size = 40
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HUD" parent="." unique_id=368288586 instance=ExtResource("2_4r2m5")]

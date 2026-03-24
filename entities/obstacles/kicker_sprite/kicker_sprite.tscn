@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bysiykqp2i7wj"]
+
+[ext_resource type="Script" uid="uid://c1h64dumo4nae" path="res://entities/obstacles/kicker_sprite/kicker_sprite.gd" id="1_rdwq8"]
+[ext_resource type="AudioStream" uid="uid://bmo078u6xl3fb" path="res://assets/audio/blocks/振刀.mp3" id="2_h5rfa"]
+[ext_resource type="Texture2D" uid="uid://6ilemj1g6ol5" path="res://assets/sprites/props/刀盾.png" id="3_h5rfa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl86m"]
+size = Vector2(38, 26)
+
+[node name="KickerSprite" type="Area2D" unique_id=305668427]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_rdwq8")
+kick_distance = 258.375
+kick_duration = 0.8
+kick_height = 80.0
+spin_turns = 5.0
+parry_range = 45.0
+parry_sound = ExtResource("2_h5rfa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=972083075]
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(0.021, 0.021)
+texture = ExtResource("3_h5rfa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=431634622]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_yl86m")

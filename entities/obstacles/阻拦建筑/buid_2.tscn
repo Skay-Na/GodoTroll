@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cjijc0shgv1ki"]
+
+[ext_resource type="Texture2D" uid="uid://crvk0sdgn7k70" path="res://assets/sprites/environment/建筑大全.png" id="1_7laaf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tewt5"]
+size = Vector2(16, 16)
+
+[node name="Buid2" type="StaticBody2D" unique_id=256318873]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1855860217]
+texture_filter = 1
+texture = ExtResource("1_7laaf")
+region_enabled = true
+region_rect = Rect2(896, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2085569730]
+shape = SubResource("RectangleShape2D_tewt5")

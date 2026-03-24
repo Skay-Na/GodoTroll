@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://3mhhrdsl2wgf"]
+
+[ext_resource type="Script" uid="uid://ckyxren842ljb" path="res://entities/enemies/fire_flower.gd" id="1_huryp"]
+[ext_resource type="Texture2D" uid="uid://d0y18j7drc7m" path="res://assets/sprites/characters/怪物形态.png" id="2_a1ffg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lrjiy"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huryp"]
+atlas = ExtResource("2_a1ffg")
+region = Rect2(448, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1ffg"]
+atlas = ExtResource("2_a1ffg")
+region = Rect2(464, 72, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f7bgp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huryp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1ffg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FireFlower" type="Area2D" unique_id=1685310987]
+z_index = -9
+collision_layer = 8
+collision_mask = 522
+script = ExtResource("1_huryp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=765568768]
+shape = SubResource("CapsuleShape2D_lrjiy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1697537778]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_f7bgp")
+autoplay = "default"
+frame_progress = 0.041285723

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ci8pfrekuulol"]
+
+[ext_resource type="Texture2D" uid="uid://crvk0sdgn7k70" path="res://assets/sprites/environment/建筑大全.png" id="1_2lcdj"]
+[ext_resource type="PackedScene" uid="uid://dw7urmu8rv1fp" path="res://entities/objects/firebar/firebar.tscn" id="2_u4vah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tewt5"]
+size = Vector2(16, 16)
+
+[node name="Buid3" type="StaticBody2D" unique_id=256318873]
+collision_layer = 512
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1855860217]
+texture_filter = 1
+texture = ExtResource("1_2lcdj")
+region_enabled = true
+region_rect = Rect2(832, 16, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2085569730]
+shape = SubResource("RectangleShape2D_tewt5")
+
+[node name="Firebar" parent="." unique_id=2116714481 instance=ExtResource("2_u4vah")]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddvryvuw560te"
+path="res://.godot/imported/踩扁敌人音效（最经典的 “踩蘑菇” 声.wav-0712b4bab2e3981028ec059b33a2a95b.sample"
+
+[deps]
+
+source_file="res://assets/audio/踩扁敌人音效（最经典的 “踩蘑菇” 声.wav"
+dest_files=["res://.godot/imported/踩扁敌人音效（最经典的 “踩蘑菇” 声.wav-0712b4bab2e3981028ec059b33a2a95b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

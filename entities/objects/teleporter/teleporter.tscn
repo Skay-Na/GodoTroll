@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b2ltagms8jq44"]
+
+[ext_resource type="Script" uid="uid://cjqeo5im8wtc7" path="res://entities/objects/teleporter/teleporter.gd" id="1_vurns"]
+[ext_resource type="AudioStream" uid="uid://cv2w15unbsw5x" path="res://assets/audio/pipe_enter.mp3" id="2_pce0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsywe"]
+size = Vector2(20, 30)
+
+[node name="Teleporter" type="Area2D" unique_id=1403364033]
+position = Vector2(0, -15)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_vurns")
+teleport_delay = 1.0
+teleport_sound = ExtResource("2_pce0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=528148941]
+shape = SubResource("RectangleShape2D_tsywe")

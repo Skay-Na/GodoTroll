@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://c1mg604l0dsol"]
+
+[ext_resource type="Script" uid="uid://nj1lvioxorh1" path="res://entities/enemies/bowser_fire.gd" id="1_1t1gg"]
+[ext_resource type="Texture2D" uid="uid://d0y18j7drc7m" path="res://assets/sprites/characters/怪物形态.png" id="2_lbnkg"]
+
+[sub_resource type="Animation" id="Animation_xi21u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3b6x5"]
+resource_name = "default"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_krqp6"]
+_data = {
+&"RESET": SubResource("Animation_xi21u"),
+&"default": SubResource("Animation_3b6x5")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1t1gg"]
+radius = 3.0
+height = 24.0
+
+[node name="BowserFire" type="Area2D" unique_id=846077807]
+collision_layer = 0
+script = ExtResource("1_1t1gg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=427657872]
+texture_filter = 1
+scale = Vector2(-1, 1)
+texture = ExtResource("2_lbnkg")
+vframes = 2
+region_enabled = true
+region_rect = Rect2(159, 109, 28, 30)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1301330269]
+libraries/ = SubResource("AnimationLibrary_krqp6")
+autoplay = &"default"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1061081266]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=96438793]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_1t1gg")

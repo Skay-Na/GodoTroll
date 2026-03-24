@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dd6pftgxf5x58"]
+
+[ext_resource type="Script" uid="uid://b2nhpxgb0oj73" path="res://entities/enemies/koopa_paratroopa.gd" id="1_jlbo8"]
+[ext_resource type="Texture2D" uid="uid://d0y18j7drc7m" path="res://assets/sprites/characters/怪物形态.png" id="1_srede"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpdf5"]
+atlas = ExtResource("1_srede")
+region = Rect2(240, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlbo8"]
+atlas = ExtResource("1_srede")
+region = Rect2(208, 72, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbolb"]
+atlas = ExtResource("1_srede")
+region = Rect2(224, 72, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpdf5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpdf5")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlbo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbolb")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srede"]
+size = Vector2(16, 23)
+
+[node name="Koopa Paratroopa" type="CharacterBody2D" unique_id=1069621713]
+collision_layer = 8
+collision_mask = 18
+script = ExtResource("1_jlbo8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1273729834]
+texture_filter = 1
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_fpdf5")
+animation = &"dead"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=821890671]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_srede")

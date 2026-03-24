@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b2l5wctwmon0u"]
+
+[ext_resource type="Script" uid="uid://cwlu78b3sb01d" path="res://entities/objects/flagpole/flagpole.gd" id="1_stahk"]
+[ext_resource type="Texture2D" uid="uid://bvivnwa6afpwv" path="res://assets/sprites/environment/旗杆.png" id="1_wgedl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgedl"]
+size = Vector2(2, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stahk"]
+size = Vector2(16, 16)
+
+[node name="Flagpole" type="Node2D" unique_id=569295245]
+script = ExtResource("1_stahk")
+
+[node name="PoleTrigger" type="Area2D" parent="." unique_id=103639361]
+collision_layer = 0
+collision_mask = 2
+
+[node name="PoleTriggerShape" type="CollisionShape2D" parent="PoleTrigger" unique_id=765476196]
+position = Vector2(0, -80)
+shape = SubResource("RectangleShape2D_wgedl")
+
+[node name="PoleSprite" type="Sprite2D" parent="." unique_id=782071561]
+texture_filter = 1
+position = Vector2(0, -80)
+texture = ExtResource("1_wgedl")
+region_enabled = true
+region_rect = Rect2(16, 32, 16, 176)
+
+[node name="FlagSprite" type="Sprite2D" parent="." unique_id=1392053173]
+texture_filter = 1
+position = Vector2(-8, -144)
+texture = ExtResource("1_wgedl")
+region_enabled = true
+region_rect = Rect2(48, 48, 16, 16)
+
+[node name="BaseBody" type="StaticBody2D" parent="." unique_id=1558718228]
+
+[node name="BaseSolidShape" type="CollisionShape2D" parent="BaseBody" unique_id=1050866982]
+shape = SubResource("RectangleShape2D_stahk")

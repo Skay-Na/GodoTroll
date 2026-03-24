@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://bgwugr5ucfanq"]
+
+[ext_resource type="Script" uid="uid://52fb124aptlx" path="res://entities/obstacles/fire_ring/fire_ring.gd" id="1_i2gcx"]
+[ext_resource type="Texture2D" uid="uid://cr3y8xo7kas4a" path="res://assets/sprites/props/左.png" id="2_i2gcx"]
+[ext_resource type="Texture2D" uid="uid://bo4svafdnbajo" path="res://assets/sprites/props/右.png" id="3_586nk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yecc4"]
+size = Vector2(10, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_586nk"]
+size = Vector2(9, 6)
+
+[sub_resource type="Animation" id="Animation_586nk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yecc4"]
+resource_name = "default"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15007177),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g3bmd"]
+_data = {
+&"RESET": SubResource("Animation_586nk"),
+&"default": SubResource("Animation_yecc4")
+}
+
+[node name="FireRing" type="Area2D" unique_id=1752152025]
+z_index = 3
+scale = Vector2(1.4, 1.4)
+collision_layer = 512
+collision_mask = 2
+script = ExtResource("1_i2gcx")
+move_speed = 89.845
+
+[node name="TopFire" type="CollisionShape2D" parent="." unique_id=138214640]
+position = Vector2(0, -25.5)
+shape = SubResource("RectangleShape2D_yecc4")
+
+[node name="BottomFire" type="CollisionShape2D" parent="." unique_id=622706153]
+position = Vector2(0.5, 25)
+shape = SubResource("RectangleShape2D_586nk")
+
+[node name="ScreenExit" type="VisibleOnScreenNotifier2D" parent="." unique_id=197181979]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=405611665]
+libraries/ = SubResource("AnimationLibrary_g3bmd")
+autoplay = &"default"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=665352511]
+z_index = -5
+position = Vector2(-3.9999998, -0.99999994)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_i2gcx")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(2, 0, 2046, 1500)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1560758077]
+z_index = 5
+position = Vector2(3.9999998, 0)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_586nk")
+hframes = 2
