@@ -220,70 +220,6 @@ cache/0/50/0/glyphs/68/size = Vector2(23, 35)
 cache/0/50/0/glyphs/68/uv_rect = Rect2(190, 1, 23, 35)
 cache/0/50/0/glyphs/68/texture_idx = 0
 
-[sub_resource type="GDScript" id="GDScript_wy5bv"]
-script/source = "extends Node
-
-@export var trap_scene: PackedScene # 右侧检查器拖入 BearTrap.tscn
-
-@export var offset_min: float = -80.0 # 后方极限距离
-@export var offset_max: float = 80.0  # 前方极限距离
-
-# 🌟【新增】持久化存储静态变量
-static var _persistent_trap_positions: Array = []
-static var _last_scene_path: String = \"\"
-var _last_scene_ref: Node = null
-
-func _process(_delta):
-	var current_scene = get_tree().current_scene
-	if current_scene and current_scene != _last_scene_ref:
-		_last_scene_ref = current_scene
-		
-		# 场景换了，有两种可能：1. 切到新关卡 2. 死亡重载旧关卡
-		var current_path = current_scene.scene_file_path
-		if current_path != _last_scene_path:
-			_persistent_trap_positions.clear()
-			_last_scene_path = current_path
-			print(\"【捕兽夹持久化】检测到新关卡 (\", current_path, \")，已清空存档。\")
-		else:
-			print(\"【捕兽夹持久化】正在从存档恢复 \", _persistent_trap_positions.size(), \" 个夹子...\")
-			# 用 deferred 调用，确保重载后的碰撞体等都初始化好
-			for pos in _persistent_trap_positions:
-				call_deferred(\"_create_trap_instance\", pos, false)
-
-func spawn_bear_trap():
-	var player = get_tree().get_first_node_in_group(\"Player\")
-	if not player or not trap_scene: return
-	
-	var viewport = player.get_viewport()
-	var visible_rect = viewport.get_visible_rect()
-	
-	# 在屏幕可视范围内随机取一个屏幕坐标
-	var random_screen_pos = Vector2(
-		randf_range(0.0, visible_rect.size.x),
-		randf_range(0.0, visible_rect.size.y)
-	)
-	
-	# 屏幕坐标 -> 世界坐标
-	var spawn_pos = viewport.get_canvas_transform().affine_inverse() * random_screen_pos
-	
-	# 调用统一的生成逻辑并记录到持久化列表
-	_create_trap_instance(spawn_pos, true)
-	
-	print(\"【捕兽夹】在屏幕随机位置生成！世界坐标：(%.1f, %.1f)\" % [spawn_pos.x, spawn_pos.y])
-
-# 🌟【新增】统一的生成逻辑
-func _create_trap_instance(pos: Vector2, should_save: bool):
-	if not trap_scene: return
-	
-	var trap = trap_scene.instantiate()
-	trap.global_position = pos
-	trap.set_meta(\"spawn_pos\", pos)
-	get_tree().current_scene.add_child(trap)
-	
-	if should_save:
-		_persistent_trap_positions.append(pos)
-"
-
 [node name="HindranceManager" type="Node" unique_id=309169178]
 script = ExtResource("1_eg223")
 
@@ -410,7 +346,6 @@ event_bgm = ExtResource("23_ocsgn")
 [node name="FireRingSpawner" type="Node" parent="." unique_id=1296019135]
 script = ExtResource("24_lu2si")
 fire_ring_scene = ExtResource("25_n5tph")
-
 
 [node name="BearTrapSpawner" type="Node" parent="." unique_id=1103687582]
 script = ExtResource("49_wy5bv")

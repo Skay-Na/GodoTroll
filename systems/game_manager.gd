@@ -294,6 +294,7 @@ func lose_life():
 func game_over():
 	print("Game Over!")
 	stop_level_timer() # 🌟【新增】停止计时
+	get_tree().paused = false # 🌟【新增】确保解除暂停，防止菜单冻结
 	pending_respawn_traps.clear()
 	lives = 18
 	coins = 0
@@ -303,7 +304,31 @@ func game_over():
 	lives_changed.emit(lives)
 	coins_changed.emit(coins)
 	level_name_changed.emit(current_level_name) # 通知UI显示第一关名字
-	get_tree().change_scene_to_file("res://scenes/hud/start_menu.tscn")
+	get_tree().change_scene_to_file("res://ui/hud/start_menu.tscn")
+
+# 🌟【新增】重玩功能：彻底重置游戏并返回菜单
+func restart_game():
+	print("【GameManager 🔄】正在重置游戏数据并返回主菜单...")
+	stop_level_timer()
+	get_tree().paused = false # 🌟【重要】通关后必须解除暂停，否则菜单无法操作
+	
+	# 彻底清空所有状态
+	lives = 18
+	coins = 0
+	player_state = 0
+	current_level_name = "WORLD 1-1"
+	checkpoint_position = Vector2.ZERO
+	pending_respawn_traps.clear()
+	
+	# 发送信号更新 UI
+	lives_changed.emit(lives)
+	coins_changed.emit(coins)
+	level_name_changed.emit(current_level_name)
+	
+	# 返回开始菜单
+	get_tree().change_scene_to_file("res://ui/hud/start_menu.tscn")
+
+	get_tree().change_scene_to_file("res://ui/hud/start_menu.tscn")
 
 # ==========================================
 # 互动视觉与生成逻辑

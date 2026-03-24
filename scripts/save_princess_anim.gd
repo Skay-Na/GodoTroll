@@ -142,13 +142,5 @@ func _on_internal_video_finished() -> void:
 
 # 统一的回调处理
 func _on_video_finished(_args: Array) -> void:
-	print("【救公主动画】视频播放结束！")
-	
-	if pause_game:
-		get_tree().paused = false
-		
-	if next_scene_path != "":
-		print("【救公主动画】正在跳转: ", next_scene_path)
-		get_tree().change_scene_to_file(next_scene_path)
-	else:
-		print("【救公主动画】未配置跳转场景。")
+	# 🌟【重玩处理】用户要求动画放完可以重玩，这里调用 GameManager 的重置并在返回主菜单
+	GameManager.restart_game()

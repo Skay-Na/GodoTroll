@@ -48,7 +48,7 @@ func _start_authentication() -> void:
 		status_label.text = "网络异常：无法连接云端！"
 		is_authenticating = false
 
-func _on_server_responded(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+func _on_server_responded(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
 		status_label.text = "验证失败：云端服务器拒绝访问或未联网！"
 		is_authenticating = false
