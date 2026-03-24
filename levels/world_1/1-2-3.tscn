@@ -157,6 +157,7 @@ texture = ExtResource("2_ak2e1")
 47:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 48:2/0 = 0
 48:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+48:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 51:2/0 = 0
 51:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 51:2/0/custom_data_0 = "question"
@@ -809,7 +810,10 @@ texture = ExtResource("2_5giie")
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_82nhy"]
-physics_layer_0/collision_layer = 3
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+physics_layer_1/collision_layer = 16
+physics_layer_1/collision_mask = 2
 custom_data_layer_0/name = "tile_type"
 custom_data_layer_0/type = 4
 custom_data_layer_1/name = "item_type"
