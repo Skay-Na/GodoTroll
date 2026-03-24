@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dl1j3swiuy0c2"]
 
 [ext_resource type="Script" uid="uid://c1xbbe6sq3b3f" path="res://systems/sound_manager.gd" id="1_ygxkf"]
-[ext_resource type="AudioStream" uid="uid://etdd524u3gx5" path="res://assets/audio/jump_small.wav" id="2_bwlvw"]
+[ext_resource type="AudioStream" uid="uid://bd0chynlqmacn" path="res://assets/audio/jump_small.wav" id="2_puqhd"]
+[ext_resource type="AudioStream" uid="uid://1qgi08a75bl5" path="res://assets/audio/jump_big.wav" id="3_e0uye"]
 [ext_resource type="AudioStream" uid="uid://dwv00nslrv6ih" path="res://assets/audio/获得强化道具音效.wav" id="3_l4m53"]
-[ext_resource type="AudioStream" uid="uid://clqg8b0ejas62" path="res://assets/audio/jump_big.wav" id="3_wwv6j"]
 [ext_resource type="AudioStream" uid="uid://3dd5vuca7102" path="res://assets/audio/player_die.wav" id="4_lrvsg"]
 [ext_resource type="AudioStream" uid="uid://4c0w10vhfp2i" path="res://assets/audio/碰撞音效（撞砖块、撞敌人等碰撞动作）.wav" id="5_d5kqp"]
 [ext_resource type="AudioStream" uid="uid://bp4lqrufq6whr" path="res://assets/audio/level_clear.wav" id="5_gb18h"]
@@ -25,8 +25,8 @@
 
 [node name="SoundManager" type="Node" unique_id=545825092]
 script = ExtResource("1_ygxkf")
-small_jump_sfx = ExtResource("2_bwlvw")
-big_jump_sfx = ExtResource("3_wwv6j")
+small_jump_sfx = ExtResource("2_puqhd")
+big_jump_sfx = ExtResource("3_e0uye")
 powerup_sfx = ExtResource("3_l4m53")
 damage_sfx = ExtResource("5_d5kqp")
 death_sfx = ExtResource("4_lrvsg")

@@ -12,10 +12,10 @@ func setup_particles(tile_data: TileData):
 	# 假设你有不同的碎片贴图存储在 res://assets/ 目录下
 	if type == "brick_green":
 		# 如果是普通砖块，可以使用蓝色的碎片纹理
-		texture = load("res://picture/青砖.png")
+		texture = load("uid://2y87muvs6h3f")
 	elif type == "brick":
 		# 如果是红色砖块，切换纹理
-		texture = load("res://picture/红砖.png")
+		texture = load("uid://bl70c74mi3wq0")
 	
 	# 3. 如果你不想换贴图，只想改颜色（最快的方法）
 	# var b_color = tile_data.get_custom_data("particle_color")
