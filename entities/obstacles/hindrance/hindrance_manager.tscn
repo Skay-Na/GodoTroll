@@ -225,6 +225,7 @@ script = ExtResource("1_eg223")
 
 [node name="RandomEnemies" type="Node" parent="." unique_id=550714067]
 script = ExtResource("2_x8abu")
+enemy_scenes = Array[PackedScene]([ExtResource("11_5653x"), ExtResource("12_tkjlg"), ExtResource("13_f0cos")])
 
 [node name="FireSpawner" type="Node" parent="." unique_id=648170532]
 script = ExtResource("3_l2mcl")

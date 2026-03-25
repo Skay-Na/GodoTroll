@@ -1,22 +1,8 @@
 extends Node
 
-var enemy_scenes: Array[PackedScene] = []
+@export var enemy_scenes: Array[PackedScene] = []
 
 func _ready():
-	# 自己一出生就开始干活：加载所有敌人
-	_load_all_enemies()
-
-func _load_all_enemies():
-	var path = "res://scenes/enemies/"
-	var files = DirAccess.get_files_at(path) 
-	
-	for file in files:
-		var clean_name = file.replace(".remap", "")
-		if clean_name.ends_with(".tscn"):
-			var scene = load(path + clean_name) as PackedScene
-			if scene:
-				enemy_scenes.append(scene)
-				
 	print("【随机敌人模块】准备就绪，加载了 ", enemy_scenes.size(), " 种敌人！")
 
 # ==========================================

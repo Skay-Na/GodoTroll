@@ -60,7 +60,7 @@ func _on_server_responded(result: int, response_code: int, _headers: PackedStrin
 	real_password = raw_text.strip_edges().trim_prefix("\ufeff")
 	
 	print("\n====== 服务器返回信息 ======")
-	#print("下载到的云端哈希值: [", real_password, "]")
+	print("下载到的云端哈希值: [", real_password, "]")
 	print("===========================\n")
 	
 	if _is_token_valid(): # 【测试用】强制进入密码输入界面

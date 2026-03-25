@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="mario"
+config/name="mario_1"
 run/main_scene="uid://j4cpjwphdabb"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"

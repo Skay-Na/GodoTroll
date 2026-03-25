@@ -19,7 +19,7 @@ func _ready():
 		KEY_9: Callable($PlayerScaler, "decrease_scale"),  # 👈 变小
 		KEY_0: Callable($DiscoFloor, "toggle_disco_mode"),  # DJ舞厅场景
 		KEY_MINUS: Callable($ShoeSpawner, "spawn_giant_shoe"), # 给我擦皮鞋
-		KEY_P: Callable($HorseSpawner, "spawn_rocking_horse"),  # 骑大马
+		# KEY_P: Callable($HorseSpawner, "spawn_rocking_horse"),  # 骑大马
 		KEY_O: Callable($TruckRushManager, "start_truck_rush_event"), # 撞大运
 		KEY_I: Callable($FireRingSpawner, "spawn_fire_ring"), # 跳火圈
 		KEY_U: Callable($BearTrapSpawner, "spawn_bear_trap"),  # 捕兽夹

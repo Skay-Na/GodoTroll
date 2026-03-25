@@ -114,6 +114,9 @@ func _on_body_entered(body: Node2D):
 func _apply_wacky_knockback(player: Node2D):
 	if not player: return
 	
+	# 👇 标记玩家正在被踢，防止 player_scaler 误判为死亡并重置体型
+	player.set_meta("being_kicked", true)
+	
 	var is_in_bear_trap = false
 	var active_bear_traps = []
 	if BearTrap._trapped_player == player:
@@ -190,6 +193,10 @@ func _apply_wacky_knockback(player: Node2D):
 	finish_tween.tween_callback(func():
 		if is_instance_valid(player):
 			player.rotation_degrees = 0.0 
+			
+			# 👇 移除被踢标记，恢复 player_scaler 的正常死亡检测
+			if player.has_meta("being_kicked"):
+				player.remove_meta("being_kicked")
 			
 			if active_talisman != null and is_instance_valid(active_talisman) and active_talisman.trapped_player == player:
 				# 定身符状态：落地后再次被吸到定身符上

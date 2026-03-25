@@ -101,8 +101,20 @@ func _process_tilemap(tilemap: TileMapLayer, is_reset: bool = false):
 	var firebar_count = 0
 	
 	for cell_pos in used_cells:
+		# --- 校验：防止 Godot 核心因访问 TileSet 中不存在的坐标而报错 ---
+		var source_id = tilemap.get_cell_source_id(cell_pos)
+		if source_id == -1: continue
+		
+		var source = tilemap.tile_set.get_source(source_id)
+		if source is TileSetAtlasSource:
+			var atlas_coords = tilemap.get_cell_atlas_coords(cell_pos)
+			if not source.has_tile(atlas_coords):
+				continue
+		# --------------------------------------------------------
+
 		var tile_data = tilemap.get_cell_tile_data(cell_pos)
-		if not tile_data: continue
+		if not tile_data: 
+			continue
 			
 		var tile_type = tile_data.get_custom_data("tile_type")
 		var item_type = tile_data.get_custom_data("item_type")

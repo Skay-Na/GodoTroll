@@ -798,7 +798,7 @@ tile_set = SubResource("TileSet_vqom5")
 script = ExtResource("4_v2ct5")
 
 [node name="Flagpole" parent="Maps" unique_id=569295245 instance=ExtResource("5_dusog")]
-position = Vector2(2408, -9)
+position = Vector2(2425, -9)
 
 [node name="Goomba" parent="." unique_id=124508995 instance=ExtResource("4_q3mdm")]
 position = Vector2(738, -154)
@@ -816,7 +816,7 @@ position = Vector2(433, -138)
 position = Vector2(501, -74)
 
 [node name="Player" parent="." unique_id=2123449894 instance=ExtResource("6_qxhdk")]
-position = Vector2(1145, -67)
+position = Vector2(63, -7)
 
 [node name="Koopa Troopa2" parent="." unique_id=1778222689 instance=ExtResource("5_mkxa8")]
 position = Vector2(861, -11)
@@ -860,4 +860,4 @@ ping_pong_distance = 80.0
 [node name="Koopa Paratroopa" parent="." unique_id=1069621713 instance=ExtResource("12_oyftp")]
 position = Vector2(1189, -20)
 speed = 61.44
-ping_pong_distance = 157.22
+ping_pong_distance = 138.0

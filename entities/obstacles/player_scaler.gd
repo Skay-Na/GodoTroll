@@ -28,8 +28,8 @@ func _process(delta: float) -> void:
 	if not is_instance_valid(timer_label):
 		_create_label()
 
-	# 👇 🌟 新增判定：如果玩家身上贴了 "riding_horse" 的免死金牌，就不算死亡！
-	if time_left > 0 and not player.is_physics_processing() and not player.has_meta("riding_horse"):
+	# 👇 🌟 新增判定：如果玩家身上贴了 "riding_horse" 或 "being_kicked" 的免死金牌，就不算死亡！
+	if time_left > 0 and not player.is_physics_processing() and not player.has_meta("riding_horse") and not player.has_meta("being_kicked"):
 		time_left = 0.0
 		current_step_offset = 0
 		_apply_scale(player)

@@ -85,7 +85,7 @@ func _spawn_platform():
 	clone.is_spawner = false
 	clone.visible = true
 	
-	get_parent().add_child(clone)
+	get_parent().add_child.call_deferred(clone)
 	clone.global_position = self.global_position
 	clone.start_position = clone.global_position
 	

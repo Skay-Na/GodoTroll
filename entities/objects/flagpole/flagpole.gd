@@ -7,7 +7,7 @@ extends Node2D
 
 var triggered = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if triggered:
 		return
 		

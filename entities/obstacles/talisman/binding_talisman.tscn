@@ -10,8 +10,9 @@ size = Vector2(37, 110)
 
 [node name="BindingTalisman" type="Area2D" unique_id=1206602372]
 script = ExtResource("1_itpqd")
-energy_multiplier = 124.895
-noise_floor_db = -20.22
+required_energy = 159.995
+energy_multiplier = 128.61
+noise_floor_db = -13.24
 energy_decay_rate = 92.99
 activation_video = ExtResource("2_kewea")
 pickup_range = 0.5
