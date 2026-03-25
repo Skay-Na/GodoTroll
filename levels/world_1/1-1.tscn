@@ -795,10 +795,10 @@ position = Vector2(695, -9)
 position = Vector2(871, -8)
 
 [node name="Goomba12" parent="goomba" unique_id=230137357 instance=ExtResource("3_j35bl")]
-position = Vector2(1453, -136)
+position = Vector2(1341, -136)
 
 [node name="Goomba13" parent="goomba" unique_id=950195018 instance=ExtResource("3_j35bl")]
-position = Vector2(1479, -136)
+position = Vector2(1374, -136)
 
 [node name="Goomba14" parent="goomba" unique_id=945711166 instance=ExtResource("3_j35bl")]
 position = Vector2(2490, -8)

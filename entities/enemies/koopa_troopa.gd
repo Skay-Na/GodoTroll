@@ -24,6 +24,9 @@ var is_dead = false
 var initial_position: Vector2
 
 func _ready():
+	# 物理処理を初期状態で停止します (初始状态下停止物理处理，防止乱飞)
+	set_physics_process(false)
+	
 	# 记录初始出生点，并监听全图重置信号
 	initial_position = global_position
 	GameManager.reset_level.connect(_on_reset_level)
@@ -60,7 +63,9 @@ func _on_reset_level():
 	# 等一帧再恢复物理，让引擎在新坐标稳定
 	await get_tree().process_frame
 	if not is_dead:
-		set_physics_process(true)
+		# 画面内にあるか確認します (检查重置后是否在屏幕内，如果在屏幕内才恢复物理)
+		if $VisibleOnScreenNotifier2D.is_on_screen():
+			set_physics_process(true)
 
 func _physics_process(delta):
 	if is_dead:
@@ -272,3 +277,9 @@ func die():
 	tween.tween_property(self, "global_position:y", start_y + 600, 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	
 	tween.finished.connect(func(): queue_free())
+
+# 画面に入った時のシグナル受信関数 (进入屏幕时的信号接收函数)
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	if not is_dead:
+		# 物理処理を再開します (恢复物理处理，让怪物开始活动)
+		set_physics_process(true)

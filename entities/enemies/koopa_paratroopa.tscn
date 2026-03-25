@@ -42,7 +42,7 @@ size = Vector2(16, 23)
 
 [node name="Koopa Paratroopa" type="CharacterBody2D" unique_id=1069621713]
 collision_layer = 8
-collision_mask = 18
+collision_mask = 2
 script = ExtResource("1_jlbo8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1273729834]
@@ -55,3 +55,9 @@ autoplay = "walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=821890671]
 position = Vector2(0, -11.5)
 shape = SubResource("RectangleShape2D_srede")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=206037610]
+position = Vector2(0, -12)
+rect = Rect2(-14, -15, 28, 32)
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]

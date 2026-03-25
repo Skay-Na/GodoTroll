@@ -766,6 +766,13 @@ script = ExtResource("1_au777")
 
 [node name="Maps" type="TileMapLayer" parent="." unique_id=1630322374]
 
+[node name="早中晚背景" type="Sprite2D" parent="Maps" unique_id=1793686451]
+z_index = -15
+texture_filter = 1
+position = Vector2(1896.5, -119.99999)
+scale = Vector2(0.39510414, 0.31614584)
+texture = ExtResource("14_07q20")
+
 [node name="BackGround" type="TileMapLayer" parent="Maps" unique_id=1039697181]
 z_index = -10
 texture_filter = 1
@@ -802,40 +809,40 @@ position = Vector2(1745, -1)
 position = Vector2(414, -57.695)
 
 [node name="Koopa Troopa2" parent="Maps" unique_id=1181507863 instance=ExtResource("5_gcp0j")]
-position = Vector2(440, -56.695)
+position = Vector2(440, -57)
 
 [node name="Koopa Troopa3" parent="Maps" unique_id=532723300 instance=ExtResource("5_gcp0j")]
-position = Vector2(464, -56.695)
+position = Vector2(465, -57)
 
 [node name="Goomba" parent="." unique_id=481740304 instance=ExtResource("4_8pxq5")]
-position = Vector2(776, -54)
+position = Vector2(776, -56)
 
 [node name="Goomba2" parent="." unique_id=1566741919 instance=ExtResource("4_8pxq5")]
-position = Vector2(884, -56)
+position = Vector2(884, -57)
 
 [node name="Goomba3" parent="." unique_id=327855195 instance=ExtResource("4_8pxq5")]
-position = Vector2(1181, -55)
+position = Vector2(1209, -56)
 
 [node name="Goomba4" parent="." unique_id=930531411 instance=ExtResource("4_8pxq5")]
-position = Vector2(1432, -55)
+position = Vector2(1486, -56)
 
 [node name="Goomba5" parent="." unique_id=1277185773 instance=ExtResource("4_8pxq5")]
-position = Vector2(1676, -71)
+position = Vector2(1676, -72)
 
 [node name="Goomba6" parent="." unique_id=1674737336 instance=ExtResource("4_8pxq5")]
 position = Vector2(2158, -57)
 
 [node name="Goomba7" parent="." unique_id=455218751 instance=ExtResource("4_8pxq5")]
-position = Vector2(2415, -23)
+position = Vector2(2453, -25)
 
 [node name="Goomba8" parent="." unique_id=2014851703 instance=ExtResource("4_8pxq5")]
-position = Vector2(3006, -55)
+position = Vector2(3007, -56)
 
 [node name="Koopa Troopa" parent="." unique_id=1152097023 instance=ExtResource("5_gcp0j")]
-position = Vector2(684, -57)
+position = Vector2(684, -58)
 
 [node name="Koopa Troopa2" parent="." unique_id=2078556652 instance=ExtResource("5_gcp0j")]
-position = Vector2(2655, -61)
+position = Vector2(2669, -58)
 
 [node name="Koopa Troopa3" parent="." unique_id=267368264 instance=ExtResource("5_gcp0j")]
 position = Vector2(2190, -59)
@@ -844,13 +851,13 @@ position = Vector2(2190, -59)
 position = Vector2(2119, -61)
 
 [node name="Koopa Troopa5" parent="." unique_id=1212223274 instance=ExtResource("5_gcp0j")]
-position = Vector2(2438, -27)
+position = Vector2(2482, -26)
 
 [node name="Koopa Troopa6" parent="." unique_id=1939123038 instance=ExtResource("5_gcp0j")]
-position = Vector2(2613, -60)
+position = Vector2(2623, -58)
 
 [node name="Koopa Troopa7" parent="." unique_id=1729041481 instance=ExtResource("5_gcp0j")]
-position = Vector2(3056, -62)
+position = Vector2(3056, -58)
 
 [node name="Player" parent="." unique_id=2123449894 instance=ExtResource("6_uc0ye")]
 position = Vector2(93, -7.6)
@@ -862,10 +869,3 @@ position = Vector2(1855, -91)
 position = Vector2(3720, -15)
 target_scene_path = "uid://dkdi7hp0v44g4"
 transition_scene = ExtResource("13_id4n1")
-
-[node name="早中晚背景" type="Sprite2D" parent="." unique_id=1793686451]
-z_index = -15
-texture_filter = 1
-position = Vector2(1896.5, -119.99999)
-scale = Vector2(0.39510414, 0.31614584)
-texture = ExtResource("14_07q20")

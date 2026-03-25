@@ -50,7 +50,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21hcc"]
-size = Vector2(13.750004, 19.906252)
+size = Vector2(13.750004, 18.656254)
 
 [node name="Koopa Troopa" type="CharacterBody2D" unique_id=124508995]
 position = Vector2(0, -9.695)
@@ -66,6 +66,11 @@ animation = &"walk"
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=721647406]
-position = Vector2(-0.62499946, 2.0718746)
-scale = Vector2(0.99999964, 0.99999964)
+position = Vector2(-0.6249992, 2.6968727)
+scale = Vector2(0.99999946, 0.99999946)
 shape = SubResource("RectangleShape2D_21hcc")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1879254246]
+rect = Rect2(-12.499999, -11.631249, 22.5, 23.749996)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
