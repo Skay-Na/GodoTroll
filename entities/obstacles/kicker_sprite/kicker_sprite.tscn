@@ -15,7 +15,7 @@ kick_distance = 258.375
 kick_duration = 0.8
 kick_height = 80.0
 spin_turns = 5.0
-parry_range = 45.0
+parry_range = 75.55
 parry_sound = ExtResource("2_h5rfa")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=972083075]

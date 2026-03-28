@@ -33,7 +33,7 @@ func _ready():
 # --- 核心播放函数 ---
 # 默认使用 AudioStreamPlayer (适合全局背景或UI音效)
 # 如果提供 global_pos，则在对应位置创建 AudioStreamPlayer2D
-func play(stream: AudioStream, global_pos: Vector2 = Vector2.ZERO):
+func play(stream: AudioStream, global_pos: Vector2 = Vector2.ZERO, volume_db: float = 0.0):
 	if stream == null:
 		return
 		
@@ -45,6 +45,7 @@ func play(stream: AudioStream, global_pos: Vector2 = Vector2.ZERO):
 		player.global_position = global_pos
 		
 	player.stream = stream
+	player.volume_db = volume_db
 	# 加入 SoundManager 节点下，随 Manager 一起常驻
 	add_child(player)
 	player.play()

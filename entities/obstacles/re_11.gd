@@ -12,4 +12,4 @@ func _process(_delta: float) -> void:
 
 func back_to_level_1():
 	print("【系统情报】正在强制返回第一关...")
-	get_tree().change_scene_to_file("res://level/1-1.tscn")
+	get_tree().change_scene_to_file("uid://vvfqdyybbry4")

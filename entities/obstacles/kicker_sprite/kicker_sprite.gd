@@ -4,7 +4,7 @@ extends Area2D
 @export_group("Attack Settings")
 @export var move_speed: float = 500.0
 @export var spawn_from_left: bool = false 
-
+@export var spawn_sound: AudioStream # 启动时的增强音效
 @export_group("Kick Effect")
 @export var kick_distance: float = 300.0 
 @export var kick_duration: float = 0.3  
@@ -13,7 +13,7 @@ extends Area2D
 
 # 👇 老板要求的震刀机制参数！
 @export_group("Parry Settings")
-@export var parry_range: float = 25.0 # 判定区间：距离玩家多近时按 A 键才有效（像素）
+@export var parry_range: float = 25.0 # 判定区间：距离玩家多近时按 空格 键才有效（像素）
 @export var parry_sound: AudioStream # 震刀成功时播放的音效
 
 # --- 内部变量 ---
@@ -21,6 +21,7 @@ var is_kicked: bool = false
 var is_parried: bool = false # 是否被成功震刀弹飞
 var move_direction: Vector2 = Vector2.LEFT 
 var target_player: Node2D = null # 提前锁定玩家，用来算距离
+var can_move: bool = false # 是否已结束延迟开始移动
 
 func _ready():
 	body_entered.connect(_on_body_entered)
@@ -45,9 +46,16 @@ func _ready():
 	if is_instance_valid(target_player):
 		move_direction = (target_player.global_position - global_position).normalized()
 
+	# 👇 🌟 核心逻辑：先响铃，后冲锋 🌟 👇
+	if spawn_sound and has_node("/root/SoundManager"):
+		get_node("/root/SoundManager").play(spawn_sound, global_position, 20.0)
+	
+	# 延迟 0.2s 后允许移动
+	get_tree().create_timer(0.2).timeout.connect(func(): can_move = true)
+
 func _process(delta: float):
-	# 如果已经踢中玩家了，就不动了
-	if is_kicked: return
+	# 如果还没到攻击时间，或者已经踢中玩家了，就不动了
+	if not can_move or is_kicked: return
 	
 	if not is_parried and is_instance_valid(target_player):
 		move_direction = (target_player.global_position - global_position).normalized()
@@ -64,8 +72,8 @@ func _input(event: InputEvent):
 	if is_kicked or is_parried or not is_instance_valid(target_player): 
 		return
 	
-	# 检测是否刚按下键盘 A 键 (防长按)
-	if event is InputEventKey and event.keycode == KEY_C and event.pressed and not event.echo:
+	# 检测是否刚按下键盘 空格 键 (防长按)
+	if event is InputEventKey and event.keycode == KEY_SPACE and event.pressed and not event.echo:
 		var dist = global_position.distance_to(target_player.global_position)
 		
 		# 判断距离
